@@ -25,6 +25,11 @@
             this.inputPeople.value = parseInt(this.inputPeople.value);
           }, 0);
         }
+        else if (inputPeople.value.includes("-")) {
+          debounceTimer = setTimeout(() => {
+            this.inputPeople.value = Math.abs(parseInt(this.inputPeople.value));
+          }, 0);
+        }
       });
     }
 
@@ -37,8 +42,14 @@
         if (inputBill.value.includes(".")) {
           debounceTimer = setTimeout(() => {
             this.inputBill.value =
-              Math.floor(parseFloat(this.inputBill.value) * 100) / 100;
-          }, 500);
+            Math.abs(Math.floor(parseFloat(this.inputBill.value) * 100) / 100);
+          }, 0);
+        }
+        if (inputBill.value.includes("-")) {
+          debounceTimer = setTimeout(() => {
+            this.inputBill.value =
+            Math.abs(Math.floor(parseFloat(this.inputBill.value) * 100) / 100);
+          }, 0);
         }
       });
     }
@@ -47,14 +58,26 @@
       let debounceTimer;
 
       inputCustom.addEventListener("input", () => {
+
         clearTimeout(debounceTimer);
 
         if (inputCustom.value.includes(".")) {
           debounceTimer = setTimeout(() => {
             this.inputCustom.value =
-              Math.floor(parseFloat(this.inputCustom.value) * 100) / 100;
-          }, 500);
+
+              Math.abs(Math.floor(parseFloat(this.inputCustom.value) * 100) / 100);
+              
+          }, 0);
         }
+        else if (inputCustom.value.includes("-")) {
+          debounceTimer = setTimeout(() => {
+            this.inputCustom.value =
+
+              Math.abs(Math.floor(parseFloat(this.inputCustom.value) * 100) / 100);
+              
+          }, 0);
+        }
+      
       });
     }
 
